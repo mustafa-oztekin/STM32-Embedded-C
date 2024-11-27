@@ -84,7 +84,6 @@ int E24_WriteString(int chipAddr, unsigned long offset, const void *buffer)
 	int size;
 	int bSize;
 	const unsigned char *ptr = (const unsigned char *)buffer;
-
 	// string uzunluğu hesaplama
 	for(size = 0; ptr[size] != '\0'; ++size)
 		;

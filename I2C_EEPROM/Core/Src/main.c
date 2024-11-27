@@ -24,7 +24,7 @@ int main(void)
 {
   char str[256] = { 0 };
 
-  int adres = 0;
+  // int adres = 0;
 
   HAL_Init();
   SystemClock_Config();
@@ -51,6 +51,8 @@ int main(void)
   LCD_DisplayOn(LCD_MODE_ON | LCD_MODE_CURSOR);
   DelayMs(3);
 
+  // LCD_Write(0, "mustafa");
+
   /*
   adres = E24_WriteString(0, 0, "SON BYTE: 14/");
 
@@ -62,12 +64,11 @@ int main(void)
 
   /*  EEPROM kullanırken başlangıçta okuyup hangi Byte'ta kaldığımızı görelim  */
   if(!E24_Read(0, 0, str, 13))
-	  LCD_Puts("E24 okunamadı!\n");
+	  LCD_Write(0, "E24 okunamadi!\n");
   else {
-	  LCD_Puts("EEPROM okundu!\n");
+	  LCD_Write(0, "EEPROM okundu!\n");
 	  str[13] = 0;
-	  for(int i = 0; i < 13; ++i)
-		  LCD_Putch(str[i]);
+	  LCD_Write(0, str);
   }
 
   // Görev Çevrimi (Task Loop)
